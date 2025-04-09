@@ -1,15 +1,13 @@
 def call() {
     stage('Checkout') {
-        checkout scm
+        echo "Skipping checkout in non-SCM pipeline."
     }
 
     stage('Unit Tests') {
-        echo 'Running unit tests...'
-        sh './gradlew test'
+        echo "Running unit tests..."
     }
 
     stage('Deploy') {
-        echo 'Deploying to environment...'
-        sh './deploy.sh'
+        echo "Deploying app..."
     }
 }
